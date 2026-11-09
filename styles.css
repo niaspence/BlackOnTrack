@@ -1,83 +1,91 @@
+/* ========================================================= */
+/*  styles.css: controls how your page LOOKS                 */
+/*                                                           */
+/*  HTML (my-page.html) = the words on the page.             */
+/*  CSS  (this file)    = the colors, fonts, and sizes.      */
+/*                                                           */
+/*  Every CSS rule has the same shape:                       */
+/*                                                           */
+/*      what-to-style {                                      */
+/*        property: value;                                   */
+/*      }                                                    */
+/*                                                           */
+/*  Example:  h1 { font-size: 3rem; }                        */
+/*  means "make the big title (h1) size 3rem."               */
+/* ========================================================= */
+ 
+ 
+/* ========================================================= */
+/*  MY STYLE: START HERE                                     */
+/*  Change the values after the colons, then save.           */
+/*  Keep the ; at the end of every line.                     */
+/*  If the page looks broken, undo your last change.         */
+/* ========================================================= */
+ 
 :root {
-  /* Main color (headings, links, card stripe).
+  /* Main color (headings and links).
      Try: #c0392b red, #2e7d32 green, #6a1b9a purple, #e67e22 orange, #2c3e50 navy */
   --accent: #1d5c63;
-
+ 
   /* Page background color */
   --page-bg: #f7f5f0;
-
+ 
   /* Text color */
   --text-color: #1f2a37;
-
-  /* Card background color */
-  --card-bg: #ffffff;
-
+ 
   /* Font. Try: Georgia, serif   "Courier New", monospace   Verdana, sans-serif */
   --font: "Trebuchet MS", sans-serif;
-
+ 
   /* Title size. Try 2rem up to 4rem */
-  --title-size: 2.2rem;
-
-  /* Card corners. 0px is square, 20px is very round */
-  --corner: 6px;
+  --title-size: 2.6rem;
 }
-
-* { box-sizing: border-box; }
-
+ 
+ 
+/* ========================================================= */
+/*  THE REST OF THE FILE                                     */
+/*  This part uses your settings above. You can read it to   */
+/*  see how it works. You don't have to change it.           */
+/* ========================================================= */
+ 
 /* "body" is the whole page */
 body {
   margin: 0;
   font-family: var(--font);
   background: var(--page-bg);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.7;
 }
-
+ 
 /* "main" is the box that holds your content */
 main {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 48px 24px 64px;
+  padding: 56px 24px 72px;
 }
-
+ 
 /* h1 is your big title */
 h1 {
   font-size: var(--title-size);
   margin: 0 0 4px;
   line-height: 1.15;
-}
-
-/* the sentence about you */
-.about {
-  opacity: 0.75;
-  font-size: 1.05rem;
-  margin: 0 0 8px;
-}
-
-/* h2 is each section heading */
-h2 {
-  font-size: 1.2rem;
-  margin: 32px 0 10px;
   color: var(--accent);
 }
-
-/* ".card" is each box of advice */
-.card {
-  background: var(--card-bg);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-left: 4px solid var(--accent);
-  border-radius: var(--corner);
-  padding: 14px 18px;
-  margin-bottom: 12px;
+ 
+/* the sentence under your title */
+.tagline {
+  font-size: 1.15rem;
+  opacity: 0.75;
+  margin: 0 0 12px;
 }
-
-/* h3 is the title inside a card */
-.card h3 {
-  margin: 0 0 4px;
-  font-size: 1.1rem;
+ 
+/* h2 is each section heading */
+h2 {
+  font-size: 1.3rem;
+  margin: 36px 0 8px;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
 }
-
-.card p { margin: 0 0 6px; }
-
-/* links inside cards */
-.card a { color: var(--accent); }
+ 
+/* links */
+a { color: var(--accent); }
+ 
