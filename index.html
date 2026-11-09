@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <!--
   =====================================================================
-  PORTFOLIO TEMPLATE: index.html
+  GROUP PAGE TEMPLATE: index.html
   =====================================================================
-  HTML is the CONTENT of the page (the words, photo, and links).
+  HTML is the CONTENT of the page (the words and links).
   styles.css makes it pretty. Keep both files in the same folder.
 
-  YOUR 8 STEPS (do them in order, saving and checking the preview each time):
-    STEP 1  Browser tab title          (top of this file)
-    STEP 2  Your name in the nav bar
+  Text inside comment markers like this one is never shown to visitors.
+
+  YOUR 9 STEPS (do them in order, saving and checking the preview each time):
+    STEP 1  Your name and group       (the two meta lines below)
+    STEP 2  Browser tab title + nav bar
     STEP 3  Your intro (the big headline)
     STEP 4  The code window
-    STEP 5  About me + photo
-    STEP 6  Skills and school
-    STEP 7  Projects
-    STEP 8  Contact links + footer
+    STEP 5  Group Commonality section
+    STEP 6  Clubs we recommend
+    STEP 7  Campus resources
+    STEP 8  Internships
+    STEP 9  Footer
     BONUS   Open styles.css and change your colors!
 
   HOW TO FIND YOUR SPOT: press Ctrl+F (Cmd+F on Mac) and search for the
-  step, like "STEP 3". Everything you replace is inside [BRACKETS].
-  Delete the brackets too! Example: [Your Name] becomes Nia Spence
+  step, like "STEP 5". Everything you replace is inside [BRACKETS].
+  Delete the brackets too! Example: [Your Name] becomes Maya Johnson
+
+  HOW CARDS WORK (Steps 5 to 8):
+    - A card is one box of advice, from <div class="card"> to </div>.
+    - Put your cards BETWEEN the START and END lines. Don't delete those lines!
+    - To ADD a card: copy a whole card and paste it right below the last one.
+    - To REMOVE a card: delete the whole card.
+    - Leave a section empty if you have nothing for it.
   =====================================================================
 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Makes the site fit phone screens. Leave this alone. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- STEP 1: BROWSER TAB TITLE
-       This is the text on the browser tab and in Google results.
-       Replace both [BRACKETS]. Example: Maya Johnson · Biology -->
-  <title>[Your Name] · [Your Major or Field]</title>
+  <!-- STEP 1: WHO YOU ARE
+       Change the words inside the quote marks (keep the quote marks!).
+       For "field", use EXACTLY the wording your group leader gives you.
+       This is how everyone's pages get sorted together later. -->
+  <meta name="author" content="Your Name">
+  <meta name="field" content="Your Group">
+
+  <!-- STEP 2 (part 1): BROWSER TAB TITLE
+       The text on the browser tab. Example: First-Gen Engineers · Advice Hub -->
+  <title>[Your Group Name] · Advice Hub</title>
 
   <!-- Loads two free fonts from Google Fonts. Leave this alone. -->
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -40,16 +55,16 @@
 </head>
 <body>
 
-<!-- STEP 2: NAVIGATION BAR (the menu at the top)
-     Replace [Your Name] with your name.
-     How the links work: href="#about" jumps down to the part of the page
-     that says id="about". You can leave the three links as they are. -->
+<!-- STEP 2 (part 2): NAVIGATION BAR
+     Replace [Your Group Name] with your group's name.
+     The links jump down the page. Leave them as they are. -->
 <nav><div class="wrap">
-  <b>[Your Name]</b>
+  <b>[Your Group Name]</b>
   <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#commonality">Us</a></li>
+    <li><a href="#clubs">Clubs</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#internships">Internships</a></li>
   </ul>
 </div></nav>
 
@@ -57,131 +72,123 @@
 
   <!-- STEP 3: YOUR INTRO (the first thing people see)
        h1 is the main headline. Every page should have only one.
-       - Replace [Your Name] in the headline.
-       - Replace the lead sentence: who you are, what you study or do, what you care about.
-       - The two buttons below jump to your projects and contact sections. Leave them. -->
+       - Replace [Your Group Name].
+       - Replace the lead sentence: who your group is and who this page helps. -->
   <header class="hero">
     <div>
-      <h1>Hi, I’m <span>[Your Name]</span>.</h1>
-      <p class="lead">[One or two sentences: who you are, what you study or do, and what you care about.]</p>
+      <h1>Advice from <span>[Your Group Name]</span>.</h1>
+      <p class="lead">[One or two sentences: who your group is, what you have in common, and who this page is for.]</p>
       <div class="btns">
-        <a class="btn main" href="#projects">See my projects</a>
-        <a class="btn alt" href="#contact">Say hello</a>
+        <a class="btn main" href="#clubs">See our tips</a>
+        <a class="btn alt" href="#internships">Find internships</a>
       </div>
     </div>
 
     <!-- STEP 4: THE CODE WINDOW
-         This little box shows facts about you written like code.
-         Replace each [BRACKET] with your own info. Keep the quote marks "like this"
-         and the commas at the end of each line.
-         Don't want it? Delete everything from <div class="win" ...> down to its
-         matching </div>. -->
-    <div class="win" aria-label="A short profile written like code">
-      <div class="win-bar"><i></i><i></i><i></i><span>about_me.py</span></div>
-<pre><span class="k">me</span> = {
-  <span class="s">"school"</span>: <span class="s">"[Your School]"</span>,
-  <span class="s">"major"</span>: <span class="s">"[Your Major]"</span>,
-  <span class="s">"interests"</span>: <span class="s">"[Your Interests]"</span>,
-  <span class="s">"currently"</span>: <span class="s">"[What you're learning]"</span>,
+         A little box with facts about your group, written like code.
+         Replace each [BRACKET]. Keep the quote marks "like this" and the commas.
+         Don't want it? Delete everything from <div class="win" ...> to its matching </div>. -->
+    <div class="win" aria-label="A short profile of the group written like code">
+      <div class="win-bar"><i></i><i></i><i></i><span>our_group.py</span></div>
+<pre><span class="k">group</span> = {
+  <span class="s">"name"</span>: <span class="s">"[Your Group Name]"</span>,
+  <span class="s">"we_share"</span>: <span class="s">"[What you have in common]"</span>,
+  <span class="s">"mentor"</span>: <span class="s">"[Mentor Name]"</span>,
+  <span class="s">"members"</span>: <span class="s">"[Your names]"</span>,
 }<span class="cursor"></span></pre>
     </div>
   </header>
 
-  <!-- STEP 5: ABOUT ME
-       id="about" is the target of the nav link in Step 2.
-       h2 is a section heading. p is a paragraph. -->
-  <section id="about">
-    <h2>About me</h2>
-    <p class="sub">[A short tagline, like "A little more than my resume."]</p>
-    <div class="about">
-      <div>
-        <!-- YOUR PHOTO: save your picture in this folder as photo.jpg
-             (if it's a PNG, change photo.jpg to photo.png below).
-             In Replit: drag the picture into the file list on the left.
-             alt="" describes the photo for screen readers. Put your name there.
-             Until you add a photo, a beige circle shows instead. -->
-        <div class="photo">
-          <span>Add your photo:<br>save it as photo.jpg</span>
-          <img src="photo.jpg" alt="Portrait of [Your Name]" onerror="this.remove()">
-        </div>
-        <!-- Two paragraphs about you. Replace each [BRACKET]. -->
-        <p>[Paragraph 1: your background and what you're studying or working on.]</p>
-        <p>[Paragraph 2: hobbies, clubs, causes, or anything that makes you, you.]</p>
-      </div>
-
-      <div>
-        <!-- STEP 6: SKILLS AND SCHOOL
-             Each skill is one line with class="chip".
-             To ADD a skill: copy one whole <span class="chip">...</span> line and paste it below.
-             To REMOVE one: delete the whole line. -->
-        <h3 style="font-size:1.2rem;margin-bottom:10px">Skills and tools</h3>
-        <div class="chips">
-          <span class="chip">[Skill 1]</span>
-          <span class="chip">[Skill 2]</span>
-          <span class="chip">[Skill 3]</span>
-          <span class="chip">[Skill 4]</span>
-          <span class="chip">[Skill 5]</span>
-        </div>
-        <!-- Your school info. Replace each [BRACKET]. If you have no minor, delete that part. -->
-        <div class="edu">
-          <h3>[Your School]</h3>
-          <p>[Degree] · [Minor, if any]<br>Expected graduation: [Month Year]</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STEP 7: PROJECTS
-       Each <article class="card"> is one project box.
-       - Replace the [BRACKETS] in each card.
-       - To ADD a project: copy a whole card (from <article> to </article>) and paste it below the last one.
-       - To REMOVE one: delete the whole card.
-       No projects yet? Use classes, clubs, volunteering, or research instead. -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <p class="sub">[A short line introducing your work.]</p>
+  <!-- STEP 5: GROUP COMMONALITY
+       Change the h2 heading to the thing your group shares (like "First-Gen Stories").
+       Add cards about your group's stories, paths, or advice.
+       Example title: "Switching majors" with 1-2 sentences of what you learned. -->
+  <section id="commonality">
+    <h2>Group Commonality</h2>
+    <p class="sub">[A short line about what makes your group, your group.]</p>
     <div class="grid">
-      <article class="card">
-        <h3>[Project Name]</h3>
-        <p>[One or two sentences: what it does and why you built it.]</p>
-        <div class="chips"><span class="chip">[Tool]</span><span class="chip">[Tool]</span></div>
-      </article>
-      <article class="card">
-        <h3>[Project Name]</h3>
-        <p>[One or two sentences: what it does and why you built it.]</p>
-        <div class="chips"><span class="chip">[Tool]</span><span class="chip">[Tool]</span></div>
-      </article>
-      <article class="card">
-        <h3>[Project Name]</h3>
-        <p>[One or two sentences: what it does and why you built it.]</p>
-        <div class="chips"><span class="chip">[Tool]</span><span class="chip">[Tool]</span></div>
-      </article>
+      <!-- START:paths -->
+      <div class="card">
+        <h3>Example: Our story</h3>
+        <p>Describe how someone in your group got from class to career, or the best advice you got.</p>
+      </div>
+      <div class="card">
+        <h3>Example: What we wish we knew</h3>
+        <p>One thing you wish someone had told you as a first-year.</p>
+      </div>
+      <!-- END:paths -->
     </div>
   </section>
 
-  <!-- STEP 8: CONTACT
-       - Replace the [BRACKET] with what you're looking for.
-       - Links: change the web address inside the quotes AND leave the words people click.
-           mailto:you@example.com      becomes mailto:your-real-email@school.edu
-           https://github.com/your-username   becomes your GitHub page
-           https://www.linkedin.com/in/your-username   becomes your LinkedIn page
-       - Don't have GitHub? Delete that whole <a> line. -->
-  <section id="contact" style="padding-top:24px">
-    <div class="contact">
-      <h2>Let’s connect</h2>
-      <p>[What you're looking for: internships, collaborators, or just a chat.]</p>
-      <div class="btns" style="justify-content:center">
-        <a class="btn main" href="mailto:you@example.com">Email me</a>
-        <a class="btn alt" href="https://github.com/your-username">GitHub</a>
-        <a class="btn alt" href="https://www.linkedin.com/in/your-username">LinkedIn</a>
+  <!-- STEP 6: CLUBS WE RECOMMEND
+       Each card is one club. Change the title, the sentence, and the link.
+       Link: change the web address inside the quotes and keep the words people click.
+       No link? Delete the whole <a> line. -->
+  <section id="clubs">
+    <h2>Clubs we recommend</h2>
+    <p class="sub">[A short line like "Where we found our people."]</p>
+    <div class="grid">
+      <!-- START:clubs -->
+      <div class="card">
+        <h3>Example: Club name</h3>
+        <p>What it's like, and why you'd recommend it. Beginners welcome?</p>
+        <a href="https://example.com">Club website</a>
       </div>
+      <div class="card">
+        <h3>Example: Another club</h3>
+        <p>What it's like, and why you'd recommend it.</p>
+        <a href="https://example.com">Club website</a>
+      </div>
+      <!-- END:clubs -->
+    </div>
+  </section>
+
+  <!-- STEP 7: CAMPUS RESOURCES WORTH KNOWING
+       Offices, programs, or people on campus that helped you. -->
+  <section id="resources">
+    <h2>Campus resources worth knowing</h2>
+    <p class="sub">[A short line like "Free help most people forget about."]</p>
+    <div class="grid">
+      <!-- START:resources -->
+      <div class="card">
+        <h3>Example: Career center resume review</h3>
+        <p>Free 30-minute appointments. Book a week ahead.</p>
+        <a href="https://example.com">Book a time</a>
+      </div>
+      <div class="card">
+        <h3>Example: Another resource</h3>
+        <p>What it is and how to use it.</p>
+        <a href="https://example.com">Learn more</a>
+      </div>
+      <!-- END:resources -->
+    </div>
+  </section>
+
+  <!-- STEP 8: INTERNSHIPS AND HOW TO GET THEM
+       Real places to apply, plus tips on timing and how you got in. -->
+  <section id="internships">
+    <h2>Internships and how to get them</h2>
+    <p class="sub">[A short line like "Where to look and when to apply."]</p>
+    <div class="grid">
+      <!-- START:internships -->
+      <div class="card">
+        <h3>Example: Internship name</h3>
+        <p>Tip: When applications open, and what helped you get in.</p>
+        <a href="https://example.com">Apply</a>
+      </div>
+      <div class="card">
+        <h3>Example: Another internship</h3>
+        <p>Tip: Who to talk to first.</p>
+        <a href="https://example.com">Apply</a>
+      </div>
+      <!-- END:internships -->
     </div>
   </section>
 
 </main>
 
-<!-- STEP 8 (last part): FOOTER. Replace [Year] and [Your Name]. -->
-<footer>© [Year] [Your Name]</footer>
+<!-- STEP 9: FOOTER. Replace [Your Group Name] and [Names of the people who built this page]. -->
+<footer>[Your Group Name] · Built by [Names of the people who built this page]</footer>
 
 <!-- DONE! Now open styles.css for the bonus step: make it yours with color. -->
 </body>
