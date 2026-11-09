@@ -1,91 +1,115 @@
-/* ========================================================= */
-/*  styles.css: controls how your page LOOKS                 */
-/*                                                           */
-/*  HTML (my-page.html) = the words on the page.             */
-/*  CSS  (this file)    = the colors, fonts, and sizes.      */
-/*                                                           */
-/*  Every CSS rule has the same shape:                       */
-/*                                                           */
-/*      what-to-style {                                      */
-/*        property: value;                                   */
-/*      }                                                    */
-/*                                                           */
-/*  Example:  h1 { font-size: 3rem; }                        */
-/*  means "make the big title (h1) size 3rem."               */
-/* ========================================================= */
- 
- 
-/* ========================================================= */
-/*  MY STYLE: START HERE                                     */
-/*  Change the values after the colons, then save.           */
-/*  Keep the ; at the end of every line.                     */
-/*  If the page looks broken, undo your last change.         */
-/* ========================================================= */
- 
-:root {
-  /* Main color (headings and links).
-     Try: #c0392b red, #2e7d32 green, #6a1b9a purple, #e67e22 orange, #2c3e50 navy */
-  --accent: #1d5c63;
- 
-  /* Page background color */
-  --page-bg: #f7f5f0;
- 
-  /* Text color */
-  --text-color: #1f2a37;
- 
-  /* Font. Try: Georgia, serif   "Courier New", monospace   Verdana, sans-serif */
-  --font: "Trebuchet MS", sans-serif;
- 
-  /* Title size. Try 2rem up to 4rem */
-  --title-size: 2.6rem;
+
+
+/* =========================================================
+   BONUS 1: COLORS (start here!)
+   Change a hex code (like #c49a6c), save, and watch the whole page change.
+   Don't know a color's code? Search "hex color picker" and copy one.
+   Keep the # and the ; at the end of each line.
+   ========================================================= */
+:root{
+  --bg:#f6f0e6;          /* page background (warm beige) */
+  --surface:#fffdf8;     /* cards and boxes */
+  --ink:#3a3128;         /* main text */
+  --muted:#6f6254;       /* softer text */
+  --main:#c49a6c;        /* TRY IT: main color for buttons and borders. Try #6a1b9a (purple) or #2e7d32 (green) */
+  --main-soft:#eadfcc;   /* light color: chips, shadows (should be a lighter version of your main color) */
+  --main-deep:#7a4f2a;   /* dark color: links and small text (a darker version of your main color) */
+  --line:#dccfb8;        /* thin borders */
+  --accent:#3f7355;      /* second color: pick one that fits you (a school color works well) */
 }
- 
- 
-/* ========================================================= */
-/*  THE REST OF THE FILE                                     */
-/*  This part uses your settings above. You can read it to   */
-/*  see how it works. You don't have to change it.           */
-/* ========================================================= */
- 
-/* "body" is the whole page */
-body {
-  margin: 0;
-  font-family: var(--font);
-  background: var(--page-bg);
-  color: var(--text-color);
-  line-height: 1.7;
+
+/* DARK MODE: these colors replace the ones above when a visitor's device is in dark mode.
+   If you changed your colors above, you can leave this alone. */
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#231d16; --surface:#2e261d; --ink:#f3eadb; --muted:#c4b49d;
+    --main:#d4a97a; --main-soft:#403425; --main-deep:#e3c39c; --line:#4f402f; --accent:#8fc0a0;
+    color-scheme:dark;
+  }
 }
- 
-/* "main" is the box that holds your content */
-main {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 56px 24px 72px;
+
+
+
+
+/* BASICS: fonts and page-wide settings */
+*{box-sizing:border-box}  /* makes sizing predictable: padding stays inside boxes */
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "DM Sans",system-ui,sans-serif}  /* TRY IT: change 17px to 19px for bigger text */
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.15;margin:0}  /* headings use the serif font */
+a{color:var(--main-deep)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}  /* shows keyboard users where they are */
+
+/* .wrap keeps content in a centered column so lines don't get too long */
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* NAVIGATION BAR: stays at the top while scrolling (position:sticky) */
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}  /* flex = items in a row */
+nav b{font-family:"Fraunces",serif;font-size:1.15rem}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--main-deep)}
+
+/* HERO: the big intro at the top. grid = two columns (text | code window) */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,4.4rem);font-weight:700;letter-spacing:-.02em}  /* clamp() = grows and shrinks with screen size */
+.hero h1 span{color:var(--main-deep)}
+.lead{font-size:1.2rem;color:var(--muted);max-width:30em;margin:20px 0 28px}
+
+/* BUTTONS: .btn is the shared shape; .main is filled, .alt is outlined */
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--main);transition:transform .15s}  /* TRY IT: change 999px to 8px for squarer buttons */
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--main);color:#2b1d10}
+.btn.alt{color:var(--main-deep);background:transparent}
+
+/* CODE WINDOW: the little terminal in the hero */
+.win{background:var(--surface);border:2px solid var(--main);border-radius:18px;box-shadow:8px 8px 0 var(--main-soft);overflow:hidden;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.92rem}
+.win-bar{background:var(--main-soft);padding:10px 14px;display:flex;gap:7px;align-items:center;border-bottom:2px solid var(--main)}
+.win-bar i{width:11px;height:11px;border-radius:50%;background:var(--main);display:block}
+.win-bar i:nth-child(2){opacity:.65}.win-bar i:nth-child(3){opacity:.35}
+.win-bar span{margin-left:8px;color:var(--main-deep);font-size:.8rem}
+.win pre{margin:0;padding:18px;white-space:pre-wrap;line-height:1.7}
+.k{color:var(--main-deep)}.s{color:var(--accent)}  /* code colors */
+.cursor{display:inline-block;width:8px;height:1em;background:var(--main);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}  /* animation: fades the cursor in and out */
+
+/* SECTIONS: shared spacing and headings */
+section{padding:56px 0}
+h2{font-size:2rem;margin-bottom:8px}  /* TRY IT: change 2rem to 3rem for bigger section headings */
+.sub{color:var(--muted);margin:0 0 28px}
+
+/* ABOUT: two columns, plus the photo and skill "chips" */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.about p{margin:0 0 14px;max-width:34em}
+.photo{width:200px;height:200px;border-radius:50%;border:4px solid var(--main);box-shadow:8px 8px 0 var(--main-soft);background:var(--main-soft);position:relative;overflow:hidden;margin-bottom:24px;display:grid;place-items:center;text-align:center;color:var(--main-deep);font-size:.85rem;padding:20px}  /* TRY IT: change border-radius:50% to 20px for a rounded-square photo */
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}  /* object-fit:cover crops your photo to fill the circle */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{background:var(--main-soft);color:var(--main-deep);padding:6px 14px;border-radius:999px;font-weight:500;font-size:.92rem}
+.edu{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:18px;padding:24px 28px;margin-top:24px}
+.edu h3{font-size:1.35rem}
+.edu p{margin:4px 0 0;color:var(--muted)}
+
+/* PROJECT CARDS: auto-fit makes as many columns as fit, then wraps */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px}  /* TRY IT: change 18px to 0px for square cards */
+.card h3{font-size:1.3rem}
+.card p{margin:0;color:var(--muted)}
+.card .chips{margin-top:auto;padding-top:8px}
+.card .chip{font-size:.82rem;padding:4px 11px}
+
+/* CONTACT + FOOTER */
+.contact{text-align:center;background:var(--main-soft);border-radius:28px;padding:48px 24px;margin:24px 0 56px}
+.contact p{max-width:30em;margin:8px auto 24px;color:var(--muted)}
+footer{padding:0 0 40px;text-align:center;color:var(--muted);font-size:.9rem}
+
+/* MOBILE: these rules only apply on screens narrower than 760px */
+@media (max-width:760px){
+  .hero,.about{grid-template-columns:1fr}  /* two columns become one */
+  .hero{padding-top:44px}
+  nav ul{gap:14px;font-size:.95rem}
+  nav b{display:none}
 }
- 
-/* h1 is your big title */
-h1 {
-  font-size: var(--title-size);
-  margin: 0 0 4px;
-  line-height: 1.15;
-  color: var(--accent);
-}
- 
-/* the sentence under your title */
-.tagline {
-  font-size: 1.15rem;
-  opacity: 0.75;
-  margin: 0 0 12px;
-}
- 
-/* h2 is each section heading */
-h2 {
-  font-size: 1.3rem;
-  margin: 36px 0 8px;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 4px;
-}
- 
-/* links */
-a { color: var(--accent); }
- 
+
+/* Respect visitors who turn off animations in their device settings */
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
